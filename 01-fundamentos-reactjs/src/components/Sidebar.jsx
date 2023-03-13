@@ -1,3 +1,4 @@
+import { Avatar } from './Avatar';
 import sytle from './Sidebar.module.css';
 
 // import { AddressBook } from 'phosphor-react'
@@ -12,7 +13,7 @@ export function Sidebar() {
             />
             
             <div className={sytle.profile}>
-                <img className={sytle.avatar} src="https://github.com/jorgediasdsg.png" />
+                <Avatar src="https://github.com/jorgediasdsg.png" />
                 
                 <strong>Jorge Dias</strong>
                 <span>Developer</span>
