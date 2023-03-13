@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Revisar Javascript",
+        "done": true,
+        "deleted": false
+    },
+    {
+        "title": "Revisar Typescript",
+        "done": false,
+        "deleted": false
+    },
+    {
+        "title": "Revisar ReactJS",
+        "done": false,
+        "deleted": false
+    },
+    {
+        "title": "Efetuar desafio TODO",
+        "done": false,
+        "deleted": false
+    }
+]

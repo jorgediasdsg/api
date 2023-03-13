@@ -1,0 +1,51 @@
+.addTaskForm {
+    width: 100%;
+    margin-top: -2rem;
+    padding: 0 2rem 6rem 2rem;
+    
+    /* border-top: 1px solid var(--gray-600); */
+    display: flex;
+}
+
+/* Add in the same line  */
+
+.addTaskForm input {
+    width: 80%;
+    background: var(--gray-600);
+    border: 0;
+    margin-left: 1rem;
+    /* resize: none; */
+    height: 4rem;
+    padding: 1rem;
+    border-radius: 8px 0 0 8px;
+    color: var(--gray-100);
+    /* line-height: 1.4; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.addTaskForm button {
+    padding: 1rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+    border: 0;
+    background: var(--blue-200);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addTaskForm button:not(:disabled):hover {
+    background: var(--blue-500);
+}
+
+.addTaskForm button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
