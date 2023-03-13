@@ -1,18 +1,13 @@
 import './App.css'
 import { Header } from './components/Header'
-import { NewTask } from './components/NewTask'
-import { Task } from './components/Task'
+import { Tasks } from './components/Tasks'
 
 function App() {
 
   return (
     <div className="App">
       <Header />
-      <NewTask />
-      <Task />
-      <Task />
-      <Task />
-      <Task />
+      <Tasks />
     </div>
   )
 }
