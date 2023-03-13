@@ -1,5 +1,7 @@
 import styles from './NewTask.module.css'
 
+import { PlusCircle } from 'phosphor-react';
+
 export function NewTask() {
     return (
         <form
@@ -17,11 +19,11 @@ export function NewTask() {
             />
 
             <button
-                type="submit"
-                // disabled={isNewCommentInputEmpty}
-            >
-                Adicionar
+                // onClick={handleDeleteComment}
+                title="Criar tarefa">
+                <PlusCircle size={24} />
             </button>
+                
             
         </form>
     )

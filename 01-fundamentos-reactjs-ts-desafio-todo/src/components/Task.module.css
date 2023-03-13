@@ -1,0 +1,37 @@
+.taskLine {
+    background-color: var(--gray-600);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 0 3rem 0 3rem;
+    margin-bottom: 1rem;
+}
+
+.taskLine button {
+    background: transparent;
+    color: var(--white);
+    border: 0;
+}
+
+.taskOptions button {
+    /* padding: 0.50rem; */
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2px ;
+    border: 0;
+    background: transparent; 
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+ 
+}

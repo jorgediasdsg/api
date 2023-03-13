@@ -46,7 +46,6 @@ export function Comment({ content, onDeleteComment }: CommentsProps) {
                     </button>
                 </footer>
             </div>
-
         </div>
                     
     );
