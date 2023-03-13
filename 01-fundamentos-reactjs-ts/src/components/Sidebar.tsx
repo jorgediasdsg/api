@@ -1,7 +1,7 @@
 import { Avatar } from './Avatar';
 import sytle from './Sidebar.module.css';
 
-// import { AddressBook } from 'phosphor-react'
+import { PencilLine } from 'phosphor-react'
 
 //https://phosphoricons.com/
 
@@ -21,7 +21,7 @@ export function Sidebar() {
 
             <footer>
                 <a href="#">
-                    {/* <AddressBook size={20} /> */}
+                    <PencilLine size={20} />
                     Editar seu perfil
                 </a>
             </footer>
