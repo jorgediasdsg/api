@@ -41,7 +41,7 @@ export function Task({ task, onDoneTask, onEditTask, onDeleteTask }: TaskProps) 
                 <button
                 onClick={handleDoneTask}
                 title="Encerrar tarefa">
-                {task.isComplete ? <CheckCircle size={20} /> : <Circle size={20} />}
+                {task.isComplete ? <CheckCircle size={26} /> : <Circle size={26} />}
                 
                 </button>
             
