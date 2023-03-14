@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styles from './Tasks.module.css'
 
@@ -10,8 +10,6 @@ export function Tasks() {
     const [tasks, setTasks] = useState<Task[]>([])
     const [newTaskText, setNewTaskText] = useState('')
     const [editTask, setEditTask] = useState(0)
-    const [countOpenTasks, setCountOpenTasks] = useState(0)
-    const [countClosedTasks, setCountClosedTasks] = useState(0)
 
 
     interface Task {
@@ -24,9 +22,23 @@ export function Tasks() {
     function handleNewTaskChange(event: React.ChangeEvent<HTMLInputElement>) {
         setNewTaskText(event.target.value)
     }
+
+    function setLocalStorage(tasks: Task[] | null ){
+        localStorage.setItem('tasks', JSON.stringify(tasks))
+    }
+
+    function getLocalStorage() {
+        const tasks = localStorage.getItem('tasks')
+        if (tasks) {
+            setTasks(JSON.parse(tasks))
+        }
+    }
+
     
     function handleCreateNewTask() {
         event!.preventDefault();
+        getLocalStorage()
+
 
         if (editTask > 0) {
         
@@ -40,6 +52,7 @@ export function Tasks() {
                 return task
             })
             setTasks(updatedTasks)
+            setLocalStorage(updatedTasks)
             setNewTaskText('')
             setEditTask(0);
             return
@@ -54,7 +67,7 @@ export function Tasks() {
             }
             
 
-            
+            setLocalStorage([...tasks, newTask])
             setTasks([...tasks, newTask])
             setNewTaskText('')
             setEditTask(0);
@@ -73,12 +86,14 @@ export function Tasks() {
         })
         
         setTasks(updatedTasks)
+        setLocalStorage(updatedTasks)
     }
 
     function handleDeleteTask(_task: Task) {
         const updatedTasks = tasks.filter((task) => task.id !== _task.id)
         
         setTasks(updatedTasks)
+        setLocalStorage(updatedTasks)
     }
 
 
@@ -90,7 +105,15 @@ export function Tasks() {
         setEditTask(taskToUpdate!.id);
     }
     const isNewTaskInputEmpty = newTaskText.length === 0  
-   
+
+    useEffect(() => {
+        const tasks = localStorage.getItem('tasks')
+        if (tasks === null) {
+            return
+        } else {
+            setTasks(JSON.parse(tasks))
+        }
+    }, [])
 
     return (
         <>
