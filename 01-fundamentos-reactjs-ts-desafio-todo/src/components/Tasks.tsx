@@ -9,7 +9,7 @@ export function Tasks() {
     
     const [tasks, setTasks] = useState<Task[]>([])
     const [newTaskText, setNewTaskText] = useState('')
-    const [editTask, setEditTask] = useState(false)
+    const [editTask, setEditTask] = useState(0)
 
     interface Task {
         id: number;
@@ -24,14 +24,37 @@ export function Tasks() {
     
     function handleCreateNewTask() {
         event!.preventDefault();
-        const newTask = {
-            id: Math.random(),
-            title: newTaskText,
-            isComplete: false
-        }
 
-        setTasks([...tasks, newTask])
-        setNewTaskText('')
+        if (editTask > 0) {
+        
+            const updatedTasks = tasks.map((task) => {
+                if (task.id === editTask) {
+                    return {
+                        ...task,
+                        title: newTaskText
+                    }
+                }
+                return task
+            })
+            setTasks(updatedTasks)
+            setNewTaskText('')
+            setEditTask(0);
+            return
+
+
+        } else {
+    
+            const newTask = {
+                id: Math.random(),
+                title: newTaskText,
+                isComplete: false
+            }
+            
+
+            setTasks([...tasks, newTask])
+            setNewTaskText('')
+            setEditTask(0);
+        }
     }
 
     function handleSaveTask() {
@@ -47,7 +70,7 @@ export function Tasks() {
         })
         setTasks(updatedTasks)
         setNewTaskText('')
-        setEditTask(false);
+        setEditTask(0);
     }
 
     function doneTask(_task: Task) {
@@ -70,10 +93,8 @@ export function Tasks() {
         // Find task to update 
        const taskToUpdate = tasks.find((task) => task.id === _task.id)
         setNewTaskText(taskToUpdate!.title)
-        setEditTask(true);
+        setEditTask(taskToUpdate!.id);
     }
-
-
     const isNewTaskInputEmpty = newTaskText.length === 0 
    
 
