@@ -14,10 +14,11 @@ interface TaskProps {
     task: Task;
     onDoneTask?: (task: Task) => void;
     onEditTask?: (task: Task) => void;
+    onDeleteTask?: (task: Task) => void;
 }
 
 
-export function Task({ task, onDoneTask, onEditTask }: TaskProps) {
+export function Task({ task, onDoneTask, onEditTask, onDeleteTask }: TaskProps) {
 
     
     
@@ -28,6 +29,11 @@ export function Task({ task, onDoneTask, onEditTask }: TaskProps) {
     function handleEditTask() {
         onEditTask!(task)
     }
+
+    function handleDeleteTask() {
+        onDeleteTask!(task)
+    }
+
 
 
     return (
@@ -48,7 +54,7 @@ export function Task({ task, onDoneTask, onEditTask }: TaskProps) {
                     <PencilLine size={20} />
                 </button>
                 <button
-                    // onClick={handleDeleteComment}
+                    onClick={handleDeleteTask}
                     title="Deletar tarefa">
                     <Trash size={24} />
                 </button>

@@ -87,6 +87,12 @@ export function Tasks() {
         setTasks(updatedTasks)
     }
 
+    function handleDeleteTask(_task: Task) {
+        console.log('Tarefa concluída')
+        const updatedTasks = tasks.filter((task) => task.id !== _task.id)
+        setTasks(updatedTasks)
+    }
+
 
     function handleEditTask(_task: Task) {
        console.log('Tarefa editada')
@@ -129,6 +135,7 @@ export function Tasks() {
                     task={task}
                     onDoneTask={doneTask}
                     onEditTask={handleEditTask}
+                    onDeleteTask={handleDeleteTask}
                 />
             ))}
 
