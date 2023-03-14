@@ -37,7 +37,7 @@ export function Task({ task, onDoneTask, onEditTask, onDeleteTask }: TaskProps) 
 
 
     return (
-        <div className={styles.taskLine}>
+        <div className={!task.isComplete ? styles.taskLine : styles.taskLineDone}>
                 <button
                 onClick={handleDoneTask}
                 title="Encerrar tarefa">

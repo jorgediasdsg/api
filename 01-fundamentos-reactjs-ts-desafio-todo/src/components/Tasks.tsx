@@ -142,24 +142,27 @@ export function Tasks() {
                 <p>
                     
                     
-                    Total: {tasks.length}
+
                     
                     {' '} 
-                    | Abertas:
-                    {tasks.reduce((acc, task) => {
-                        if (!task.isComplete) {
-                            return acc + 1
-                        }
-                        return acc
-                    }, 0)}
-                    {' '}
-                    | Fechadas:
                     {tasks.reduce((acc, task) => {
                         if (task.isComplete) {
                             return acc + 1
                         }
                         return acc
                     }, 0)}
+                    /
+                    {tasks.reduce((acc, task) => {
+                        if (task.isComplete) {
+                            return acc + 1
+                        }
+                        return acc
+                    }, 0) + tasks.reduce((acc, task) => {
+                        if (!task.isComplete) {
+                            return acc + 1
+                        }
+                        return acc
+                    }, 0) }
                 </p>
             </div>
             

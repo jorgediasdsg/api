@@ -52,19 +52,33 @@
 }
 
 .totalStyle {
-    display: flex;
+    width: 50px;
+    background-color: var(--blue-500);
+    margin: 1rem 3rem 1rem 3rem;
+    border-radius: 8px;
+    padding: 0.25rem;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+}
+
+.totalStyle p {
+    color: var(--gray-900);
+    font-size: 1rem;
+    line-height: 1.5;
+    /* align on button page right */
+    text-align: center;
+    font-weight: bold;
 }
 
 .MessageZeroTasks {
+    color: var(--gray-600);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    /* set bold */
+    font-weight: bold;
 }
 
 .notepad {
