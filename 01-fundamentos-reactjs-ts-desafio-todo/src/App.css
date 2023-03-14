@@ -18,3 +18,14 @@
     grid-template-columns: 1fr;
   }
 }
+.App > p {
+  font-size: 0.5rem;
+  line-height: 1.5;
+  color: var(--gray-400);
+  margin: 3rem;
+  /* align on button page right */
+  text-align: right;
+
+  
+
+}
