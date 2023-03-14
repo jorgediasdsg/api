@@ -1,4 +1,4 @@
-import './App.css'
+import styles from './App.css'
 import { Header } from './components/Header'
 import { Tasks } from './components/Tasks'
 
@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <Header />
       <Tasks />
-      <p>@jorgediasdsg</p>
     </div>
   )
 }
