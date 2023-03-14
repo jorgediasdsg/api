@@ -185,6 +185,7 @@ export function Tasks() {
                 )
                 }
 
+            <p className={styles.author}>@jorgediasdsg</p>
         </>
     )
 }
