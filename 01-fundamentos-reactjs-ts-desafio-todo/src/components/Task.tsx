@@ -1,7 +1,7 @@
 import styles from './Task.module.css';
 
 
-import { Trash, PencilLine, Circle, CheckCircle, ArrowsOutLineHorizontal } from 'phosphor-react';
+import { Trash, PencilLine, Circle, CheckCircle } from 'phosphor-react';
 
 interface Task {
     id: number;

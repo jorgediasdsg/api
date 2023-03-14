@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import styles from './Tasks.module.css'
 
-import { PlusCircle, PencilLine } from 'phosphor-react';
+import { PlusCircle, PencilLine, Notepad } from 'phosphor-react';
 import { Task } from "./Task";
 
 export function Tasks() {
@@ -10,6 +10,9 @@ export function Tasks() {
     const [tasks, setTasks] = useState<Task[]>([])
     const [newTaskText, setNewTaskText] = useState('')
     const [editTask, setEditTask] = useState(0)
+    const [countOpenTasks, setCountOpenTasks] = useState(0)
+    const [countClosedTasks, setCountClosedTasks] = useState(0)
+
 
     interface Task {
         id: number;
@@ -51,30 +54,14 @@ export function Tasks() {
             }
             
 
+            
             setTasks([...tasks, newTask])
             setNewTaskText('')
             setEditTask(0);
         }
     }
 
-    function handleSaveTask() {
-        event!.preventDefault();
-        const updatedTasks = tasks.map((task) => {
-            if (task.id === task.id) {
-                return {
-                    ...task,
-                    title: newTaskText
-                }
-            }
-            return task
-        })
-        setTasks(updatedTasks)
-        setNewTaskText('')
-        setEditTask(0);
-    }
-
     function doneTask(_task: Task) {
-        console.log('Tarefa concluída')
         const updatedTasks = tasks.map((task) => {
             if (task.id === _task.id) {
                 return {
@@ -84,28 +71,30 @@ export function Tasks() {
             }
             return task
         })
+        
         setTasks(updatedTasks)
     }
 
     function handleDeleteTask(_task: Task) {
-        console.log('Tarefa concluída')
         const updatedTasks = tasks.filter((task) => task.id !== _task.id)
+        
         setTasks(updatedTasks)
     }
 
 
     function handleEditTask(_task: Task) {
-       console.log('Tarefa editada')
-        // Find task to update 
+       
        const taskToUpdate = tasks.find((task) => task.id === _task.id)
+        
         setNewTaskText(taskToUpdate!.title)
         setEditTask(taskToUpdate!.id);
     }
-    const isNewTaskInputEmpty = newTaskText.length === 0 
+    const isNewTaskInputEmpty = newTaskText.length === 0  
    
 
     return (
         <>
+            
             <form
                 onSubmit={handleCreateNewTask}
                 className={styles.addTaskForm}
@@ -115,7 +104,6 @@ export function Tasks() {
                     placeholder="Adicione uma nova tarefa"
                     onChange={handleNewTaskChange}
                     value={newTaskText}
-                    // onInvalid={handleNewCommentInvalid}
                     required
                 />
 
@@ -125,19 +113,54 @@ export function Tasks() {
                     title="Criar tarefa">
                     {editTask ? <PencilLine size={24}  /> : <PlusCircle size={24} />}
                 </button>
-
-
             </form>
-
-            {tasks.map(task => (
-                <Task
-                    key={task.id}
-                    task={task}
-                    onDoneTask={doneTask}
-                    onEditTask={handleEditTask}
-                    onDeleteTask={handleDeleteTask}
-                />
-            ))}
+            
+            <div className={styles.totalStyle}>
+                <p>
+                    
+                    
+                    Total: {tasks.length}
+                    
+                    {' '} 
+                    | Abertas:
+                    {tasks.reduce((acc, task) => {
+                        if (!task.isComplete) {
+                            return acc + 1
+                        }
+                        return acc
+                    }, 0)}
+                    {' '}
+                    | Fechadas:
+                    {tasks.reduce((acc, task) => {
+                        if (task.isComplete) {
+                            return acc + 1
+                        }
+                        return acc
+                    }, 0)}
+                </p>
+            </div>
+            
+                {
+                (tasks.length === 0) && (
+                    
+                    <>
+                        <p className={styles.MessageZeroTasks}>  <Notepad size={74} className={styles.notepad} />Nenhuma tarefa cadastrada</p>
+                    </>
+                    
+                    ) || (
+                        
+                    tasks.map(task => (
+                        <Task
+                            key={task.id}
+                            task={task}
+                            onDoneTask={doneTask}
+                            onEditTask={handleEditTask}
+                            onDeleteTask={handleDeleteTask}
+                        />
+                    ))
+                                  
+                )
+                }
 
         </>
     )
