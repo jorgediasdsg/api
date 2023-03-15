@@ -25,13 +25,13 @@ export const HeaderContainer = styled.div`
     border-bottom: 3px solid transparent;
 
     transition: all 0.2s;
+  }
 
-    &:hover {
-      border-bottom: 3px solid ${(props) => props.theme['green-500']};
-    }
+  &:hover {
+    border-bottom: 3px solid ${(props) => props.theme['green-500']};
+  }
 
-    &.active {
-      color: ${(props) => props.theme['green-500']};
-
+  &.active {
+    color: ${(props) => props.theme['green-500']};
   }
 `
