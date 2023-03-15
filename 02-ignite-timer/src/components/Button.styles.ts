@@ -21,7 +21,7 @@ export const ButtonContainer = style.button<ButtonContainerProps>`
     border: none;
     color: white;
     margin: 5px;
-
+    
     background-color: ${props => props.theme.primary};
 
 
