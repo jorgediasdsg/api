@@ -17,18 +17,17 @@ const buttonVariants = {
 export const ButtonContainer = style.button<ButtonContainerProps>`
     width: 100px;
     height: 40px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    margin: 5px;
 
-    transition: all 0.2s ease-in-out;
+    background-color: ${props => props.theme.primary};
 
-    &:hover {
-        filter: brightness(0.8);
-    }
 
     // ${({ variant }) => buttonVariants[variant]}
 
-    ${props => {
-        return css`background-color: ${buttonVariants[props.variant]}`;
-    }}
+    // ${props => {return css`background-color: ${buttonVariants[props.variant]}`; }}
 
 `;
 
