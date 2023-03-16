@@ -50,8 +50,8 @@ const BaseInput = styled.input`
 
 export const TaskInput = styled(BaseInput)`
   flex: 1;
-  /* remover seta de sugestões */
-  &&::-webkit-calendar-picker-indicator {
+
+  &::-webkit-calendar-picker-indicator {
     display: none !important;
   }
 `
@@ -85,24 +85,23 @@ export const Separator = styled.div`
   justify-content: center;
 `
 
-export const StartCountDownButton = styled.button`
+export const StartCountdownButton = styled.button`
   width: 100%;
-  height: 5rem;
-
   border: 0;
+  padding: 1rem;
   border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+  font-weight: bold;
+
+  cursor: pointer;
 
   background: ${(props) => props.theme['green-500']};
   color: ${(props) => props.theme['gray-100']};
-
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-top: 2rem;
-  transition: background-color 0.2s;
-
-  gap: 2rem;
-
-  cursor: pointer;
 
   &:disabled {
     opacity: 0.7;
