@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const HistoryContainer = styled.main`
   flex: 1;
   padding: 3.5rem;
+
   display: flex;
   flex-direction: column;
 
@@ -28,7 +29,7 @@ export const HistoryList = styled.div`
       text-align: left;
       color: ${(props) => props.theme['gray-100']};
       font-size: 0.875rem;
-      font-weight: 1.6;
+      line-height: 1.6;
 
       &:first-child {
         border-top-left-radius: 8px;
@@ -49,7 +50,7 @@ export const HistoryList = styled.div`
       line-height: 1.6;
 
       &:first-child {
-        width: 60%;
+        width: 50%;
         padding-left: 1.5rem;
       }
 
@@ -59,6 +60,7 @@ export const HistoryList = styled.div`
     }
   }
 `
+
 const STATUS_COLORS = {
   yellow: 'yellow-500',
   green: 'green-500',
@@ -78,7 +80,7 @@ export const Status = styled.span<StatusProps>`
     content: '';
     width: 0.5rem;
     height: 0.5rem;
-    border-radius: 50%;
+    border-radius: 9999px;
     background: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
   }
 `
