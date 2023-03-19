@@ -188,7 +188,7 @@ export function Tasks() {
                 )
                 }
 
-            <a href="https://github.com/jorgediasdsg/api" target="_blank"><p className={styles.author}>@jorgediasdsg</p></a>
+            <a href="https://github.com/jorgediasdsg/todo-react" target="_blank"><p className={styles.author}>@jorgediasdsg</p></a>
         </>
     )
 }
