@@ -1,16 +1,21 @@
-import { Button } from "./components/Button";
+import { ThemeProvider } from 'styled-components'
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './Router'
+
+import { GlobalStyle } from './styles/global'
+import { defaultTheme } from './styles/themes/default'
+import { CyclesContextProvider } from './contexts/CyclesContext'
 
 export function App() {
-
   return (
-    <>
-      <Button variant="primary" />
-      <Button variant="secondary" />
-      <Button variant="success" />
-      <Button variant="danger" />
-      <Button />
-    </>
+    <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter>
+        <CyclesContextProvider>
+          <Router />
+        </CyclesContextProvider>
+      </BrowserRouter>
+
+      <GlobalStyle />
+    </ThemeProvider>
   )
 }
-
-
